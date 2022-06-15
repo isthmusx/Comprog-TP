@@ -17,7 +17,56 @@ public class MainGame extends javax.swing.JFrame {
      * Creates new form MainGame
      */
     
-    String[] words = {"Game","Hail","Clean"};
+    String[] words = {"candle",
+"border",
+"past",
+"privilege",
+"tube",
+"spring",
+"chance",
+"gregarious",
+"cute",
+"integrated",
+"cup",
+"cooperate",
+"advance",
+"shatter",
+"feeling",
+"question",
+"terrace",
+"dignity",
+"casualty",
+"rebel",
+"talented",
+"blow",
+"benefit",
+"survival",
+"butterfly",
+"gallery",
+"council",
+"fog",
+"pull",
+"mislead",
+"enlarge",
+"lobby",
+"peak",
+"corpse",
+"sword",
+"confine",
+"systematic",
+"column",
+"threshold",
+"limited",
+"blind",
+"fork",
+"admit",
+"hallway",
+"cave",
+"exotic",
+"printer",
+"award",
+"proof",
+"snap"};
     Random random = new Random();
     
     int rnd = new Random().nextInt(words.length);
@@ -49,6 +98,9 @@ public class MainGame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
+        setMaximumSize(new java.awt.Dimension(600, 300));
+        setPreferredSize(new java.awt.Dimension(600, 300));
+        setResizable(false);
 
         jLabel1.setText("Rhyme It!");
 
@@ -81,21 +133,24 @@ public class MainGame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(guessTF)
-                            .addComponent(wordTF, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))))
-                .addGap(204, 204, 204))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(263, 263, 263))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(276, 276, 276)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(104, 104, 104)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(guessTF)
+                                    .addComponent(wordTF, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))))
+                        .addGap(204, 204, 204))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(263, 263, 263)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,7 +167,7 @@ public class MainGame extends javax.swing.JFrame {
                 .addComponent(guessTF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jButton1)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
