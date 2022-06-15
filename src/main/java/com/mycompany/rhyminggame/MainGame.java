@@ -17,15 +17,14 @@ public class MainGame extends javax.swing.JFrame {
      * Creates new form MainGame
      */
     
-    public static void randomWords (){
-        
-    }
+    
     
     
     
     public MainGame() {
         
         initComponents();
+        
         String[] words = {"candle",
 "border",
 "past",
@@ -106,6 +105,7 @@ public class MainGame extends javax.swing.JFrame {
         guessTF = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         deciderLabel = new javax.swing.JLabel();
+        nextBTN = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -198,6 +198,14 @@ public class MainGame extends javax.swing.JFrame {
 
         deciderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        nextBTN.setText("Next!");
+        nextBTN.setEnabled(false);
+        nextBTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextBTNActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -209,10 +217,6 @@ public class MainGame extends javax.swing.JFrame {
                     .addComponent(guessTF, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(wordTF, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(171, 171, 171))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(247, 247, 247))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
@@ -220,6 +224,12 @@ public class MainGame extends javax.swing.JFrame {
                 .addComponent(scoreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(53, 53, 53)
+                .addComponent(nextBTN)
+                .addGap(111, 111, 111))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,9 +246,11 @@ public class MainGame extends javax.swing.JFrame {
                 .addComponent(guessTF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(deciderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton1)
-                .addGap(81, 81, 81))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(nextBTN))
+                .addGap(79, 79, 79))
         );
 
         jTabbedPane1.addTab("Game", jPanel1);
@@ -306,10 +318,16 @@ public class MainGame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
 // TODO add your handling code here:
-                String wordToRhyme = wordTF.getText();
+
+        loop();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void loop(){
+        
+        String wordToRhyme = wordTF.getText();
         String userAnswer = guessTF.getText();
         int score = 0;
-        
         
         
         String sub;
@@ -325,15 +343,19 @@ public class MainGame extends javax.swing.JFrame {
             deciderLabel.setText("Correct!");
             score++;
             scoreTF.setText(Integer.toString(score));
+            jButton1.setEnabled(false);
+            nextBTN.setEnabled(true);
         }
         else {
             deciderLabel.setText("Wrong! Game Over");
             jTabbedPane1.setSelectedIndex(2);
+            
+        
         }
+      
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
@@ -353,6 +375,16 @@ public class MainGame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nextBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBTNActionPerformed
+        // TODO add your handling code here:
+        
+        
+        //wordTF.setText(words[rnd]);
+        jButton1.setEnabled(true);
+        nextBTN.setEnabled(false);
+        
+    }//GEN-LAST:event_nextBTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,6 +421,7 @@ public class MainGame extends javax.swing.JFrame {
             }
         });
         
+        
        
     }
     
@@ -409,6 +442,7 @@ public class MainGame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton nextBTN;
     private javax.swing.JTextField scoreTF;
     private javax.swing.JTextField wordTF;
     // End of variables declaration//GEN-END:variables
